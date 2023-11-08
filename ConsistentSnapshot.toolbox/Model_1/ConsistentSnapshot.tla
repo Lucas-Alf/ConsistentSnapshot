@@ -1,11 +1,10 @@
 --------------------------- MODULE ConsistentSnapshot ---------------------------
 EXTENDS Naturals, Sequences
 
-CONSTANT NumProcesses
-
 (* Constantes *)
+CONSTANT NumProcesses, Channels
+
 Processes == 1..NumProcesses    \* Número de processos
-Channels == NumProcesses * 2    \* Número de canais
 
 (* Variáveis *)
 VARIABLES
@@ -17,8 +16,7 @@ VARIABLES
 Init ==
   /\ state =    [p \in Processes |-> "active"]
   /\ snapshot = [p \in Processes |-> ""]
-  /\ messages = [p1 \in Processes, p2 \in Processes, c \in Channels |-> <<>>]
-
+  /\ messages = [p1 \in Processes, p2 \in Processes, c \in 1..Channels |-> <<>>]
 
 (* Funções Auxiliares *)
 UpdateState(p, novoEstado) == 
@@ -49,7 +47,7 @@ Next ==
       \/ /\ state[p] = "active"
           /\ \E q \in Processes :
               /\ q # p
-              /\ \E c \in Channels :
+              /\ \E c \in 1..Channels :  (* Use 1..Channels to represent the set of channels *)
                   /\ Send(p, q, c, "snapshot")
                   /\ \E msg \in BOOLEAN :
                       /\ Receive(q, p, c) = msg
@@ -59,7 +57,7 @@ Next ==
                  ELSE UpdateState(p, "active")
                  
       \/ /\ state[p] = "running"
-          /\ \E c \in Channels :
+          /\ \E c \in 1..Channels :  (* Use 1..Channels to represent the set of channels *)
               /\ \E msg \in BOOLEAN :
                   /\ Receive(p, p, c) = msg
                   /\ IF msg THEN UpdateState(p, "terminated") ELSE TRUE
@@ -74,9 +72,8 @@ Spec ==
       /\ snapshot[p] = state[p]
       /\ \A q \in Processes :
           /\ q # p => snapshot[q] = ""
-          
 =============================================================================
 \* Modification History
-\* Last modified Wed Nov 08 16:31:44 BRT 2023 by lucas
+\* Last modified Wed Nov 08 17:20:56 BRT 2023 by lucas
 \* Last modified Fri Nov 03 09:10:05 BRT 2023 by gabif
 \* Created Sun Oct 29 12:39:53 BRT 2023 by wagner.savaris
