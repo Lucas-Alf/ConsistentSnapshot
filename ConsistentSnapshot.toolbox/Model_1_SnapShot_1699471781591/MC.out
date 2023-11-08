@@ -1,0 +1,117 @@
+@!@!@STARTMSG 2262:0 @!@!@
+TLC2 Version 2.16 of 31 December 2020 (rev: cdddf55)
+@!@!@ENDMSG 2262 @!@!@
+@!@!@STARTMSG 2187:0 @!@!@
+Running breadth-first search Model-Checking with fp 4 and seed 9094420352842090229 with 4 workers on 8 cores with 1179MB heap and 2647MB offheap memory [pid: 10981] (Linux 6.2.0-36-generic amd64, AdoptOpenJDK 14.0.1 x86_64, OffHeapDiskFPSet, DiskStateQueue).
+@!@!@ENDMSG 2187 @!@!@
+@!@!@STARTMSG 2220:0 @!@!@
+Starting SANY...
+@!@!@ENDMSG 2220 @!@!@
+Parsing file /home/lucas/Documents/TLAToolbox-1.7.1-linux.gtk.x86_64/exemples/ConsistentSnapshot/ConsistentSnapshot.toolbox/Model_1/MC.tla
+Parsing file /home/lucas/Documents/TLAToolbox-1.7.1-linux.gtk.x86_64/exemples/ConsistentSnapshot/ConsistentSnapshot.toolbox/Model_1/ConsistentSnapshot.tla
+Parsing file /home/lucas/Documents/TLAToolbox-1.7.1-linux.gtk.x86_64/toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/TLC.tla
+Parsing file /home/lucas/Documents/TLAToolbox-1.7.1-linux.gtk.x86_64/toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Naturals.tla
+Parsing file /home/lucas/Documents/TLAToolbox-1.7.1-linux.gtk.x86_64/toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/Sequences.tla
+Parsing file /home/lucas/Documents/TLAToolbox-1.7.1-linux.gtk.x86_64/toolbox/plugins/org.lamport.tlatools_1.0.0.202012311918/tla2sany/StandardModules/FiniteSets.tla
+Semantic processing of module Naturals
+Semantic processing of module Sequences
+Semantic processing of module ConsistentSnapshot
+Semantic processing of module FiniteSets
+Semantic processing of module TLC
+Semantic processing of module MC
+@!@!@STARTMSG 2219:0 @!@!@
+SANY finished.
+@!@!@ENDMSG 2219 @!@!@
+@!@!@STARTMSG 2185:0 @!@!@
+Starting... (2023-11-08 16:29:40)
+@!@!@ENDMSG 2185 @!@!@
+@!@!@STARTMSG 2189:0 @!@!@
+Computing initial states...
+@!@!@ENDMSG 2189 @!@!@
+@!@!@STARTMSG 2102:1 @!@!@
+Attempted to compute the number of elements in the integer 4.
+While working on the initial state:
+/\ state = <<"active", "active">>
+/\ messages = [p1 \in 1..2, p2 \in 1..2, c \in 4 |-> <expression line 21, col 73 to line 21, col 76 of module ConsistentSnapshot>]
+/\ snapshot = <<"", "">>
+
+@!@!@ENDMSG 2102 @!@!@
+@!@!@STARTMSG 2103:1 @!@!@
+The error occurred when TLC was evaluating the nested
+expressions at the following positions:
+0. Line 19, column 3 to line 21, column 77 in ConsistentSnapshot
+1. Line 19, column 6 to line 19, column 22 in ConsistentSnapshot
+2. Line 20, column 6 to line 20, column 40 in ConsistentSnapshot
+3. Line 21, column 6 to line 21, column 77 in ConsistentSnapshot
+
+
+@!@!@ENDMSG 2103 @!@!@
+@!@!@STARTMSG 2201:0 @!@!@
+The coverage statistics at 2023-11-08 16:29:40
+@!@!@ENDMSG 2201 @!@!@
+@!@!@STARTMSG 2773:0 @!@!@
+<Init line 18, col 1 to line 18, col 4 of module ConsistentSnapshot>: 2:2
+@!@!@ENDMSG 2773 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 19, col 3 to line 21, col 77 of module ConsistentSnapshot: 2
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2772:0 @!@!@
+<Next line 47, col 1 to line 47, col 4 of module ConsistentSnapshot>: 0:0
+@!@!@ENDMSG 2772 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 30, col 6 to line 30, col 82 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 31, col 6 to line 31, col 34 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 39, col 17 to line 39, col 45 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 43, col 17 to line 43, col 45 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 26, col 6 to line 26, col 46 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 27, col 6 to line 27, col 37 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 26, col 6 to line 26, col 46 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 27, col 6 to line 27, col 37 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 26, col 6 to line 26, col 46 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 27, col 6 to line 27, col 37 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 39, col 17 to line 39, col 45 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 43, col 17 to line 43, col 45 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 26, col 6 to line 26, col 46 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 27, col 6 to line 27, col 37 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2221:0 @!@!@
+  line 69, col 14 to line 69, col 52 of module ConsistentSnapshot: 0
+@!@!@ENDMSG 2221 @!@!@
+@!@!@STARTMSG 2202:0 @!@!@
+End of statistics.
+@!@!@ENDMSG 2202 @!@!@
+@!@!@STARTMSG 2200:0 @!@!@
+Progress(1) at 2023-11-08 16:29:40: 1 states generated (44 s/min), 0 distinct states found (0 ds/min), 0 states left on queue.
+@!@!@ENDMSG 2200 @!@!@
+@!@!@STARTMSG 2199:0 @!@!@
+1 states generated, 0 distinct states found, 0 states left on queue.
+@!@!@ENDMSG 2199 @!@!@
+@!@!@STARTMSG 2186:0 @!@!@
+Finished in 1381ms at (2023-11-08 16:29:40)
+@!@!@ENDMSG 2186 @!@!@
