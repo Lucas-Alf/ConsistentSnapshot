@@ -23,17 +23,16 @@ Receive ==
     /\ channel' = Tail(channel)
 
 (* Next state of the system *)
-Next == IF channel # <<>> 
-            THEN Receive
-            ELSE IF state < 10
-                THEN Send
-                ELSE FALSE
+Next == 
+    /\ state < 10
+    /\ \/ Send 
+       \/ Receive
     
 (* Temporal formula *)
 Spec == Init /\ [][Next]_<<state, channel>>
 
 =============================================================================
 \* Modification History
-\* Last modified Thu Nov 09 22:58:02 BRT 2023 by lucas
+\* Last modified Thu Nov 09 22:50:25 BRT 2023 by lucas
 \* Last modified Fri Nov 03 09:10:05 BRT 2023 by gabif
 \* Created Sun Oct 29 12:39:53 BRT 2023 by wagner.savaris
