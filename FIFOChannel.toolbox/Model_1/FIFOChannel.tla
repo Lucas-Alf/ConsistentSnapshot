@@ -3,37 +3,39 @@ EXTENDS Integers, Sequences, TLC
 
 VARIABLE state, channel
 
+vars == <<state, channel>>
+
 (* Set of processes *)
-Processes == 1..2
+Processes == 0..1
 
 (* Initialize variables *)
 Init == 
-    /\ state = 0
-    /\ channel = <<>>
+    /\ state = [p \in Processes |-> 0]
+    /\ channel = [p \in Processes |-> <<>>]
 
 (* Send a message from process i to process j *)
-Send ==
-    /\ channel' = Append(channel, 1)
+Send(p) ==
+    /\ channel' = [channel EXCEPT ![p] = Append(channel[p], 1)]
     /\ UNCHANGED <<state>>
 
 (* Receive a message by process j from process i *)
-Receive ==
-    /\ channel # <<>>
-    /\ state' = state + Head(channel)
-    /\ channel' = Tail(channel)
+Receive(p) ==
+    /\ channel[p] # <<>>
+    /\ state' =   [state EXCEPT ![p] = state[p] + Head(channel[p])]
+    /\ channel' = [channel EXCEPT ![p] = Tail(channel[p])]
 
 (* Next state of the system *)
-Next == IF channel # <<>> 
-            THEN Receive
-            ELSE IF state < 10
-                THEN Send
-                ELSE FALSE
-    
-(* Temporal formula *)
-Spec == Init /\ [][Next]_<<state, channel>>
+Next == \E p \in Processes :
+    IF channel[p] # <<>> 
+        THEN Receive(p)
+    ELSE IF state[p] < 10
+         THEN Send(p)
+         ELSE FALSE
 
+(* Temporal formula *)
+Spec == Init /\ [][Next]_vars
 =============================================================================
 \* Modification History
-\* Last modified Thu Nov 09 22:58:02 BRT 2023 by lucas
+\* Last modified Fri Nov 10 00:51:18 BRT 2023 by lucas
 \* Last modified Fri Nov 03 09:10:05 BRT 2023 by gabif
 \* Created Sun Oct 29 12:39:53 BRT 2023 by wagner.savaris
